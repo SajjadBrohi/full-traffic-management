@@ -64,6 +64,10 @@ public class Intersection {
         return new ArrayList<>(this.incomingConnections);
     }
 
+    public boolean hasTrafficLights() {
+        return false; //ONLY PLACEHOLDER
+    }
+
     /**
      * Gets a list containing all intersections that have incoming routes to
      * this intersection.
@@ -82,6 +86,18 @@ public class Intersection {
         return connectedIntersections;
     }
 
+
+    public void setLightDuration​(int duration) {
+        //stub
+    }
+
+    public void addTrafficLights​(List<Route> order,
+                                  int yellowTime,
+                                  int duration)
+            throws InvalidOrderException,
+            IllegalArgumentException {
+        //stub
+    }
     /**
      * Creates a new Route originating from the given intersection and adds it
      * to our list of incoming routes.
@@ -170,6 +186,13 @@ public class Intersection {
                 + from.getId() + "\" to \"" + this.getId() + "\"");
     }
 
+    public boolean equals​(Object obj) {
+        return false; //ONLY PLACEHOLDER
+    }
+
+    public int hashCode() {
+        return 0; //ONLY PLACEHOLDER
+    }
     /**
      * Returns the string representation of this intersection.
      * <p>
