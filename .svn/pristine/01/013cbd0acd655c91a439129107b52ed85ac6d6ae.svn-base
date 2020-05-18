@@ -1,13 +1,5 @@
 package tms.network;
 
-import tms.intersection.Intersection;
-import tms.route.Route;
-import tms.sensors.Sensor;
-import tms.util.DuplicateSensorException;
-import tms.util.IntersectionNotFoundException;
-import tms.util.InvalidOrderException;
-import tms.util.RouteNotFoundException;
-
 import java.util.List;
 
 public class Network {
@@ -19,16 +11,16 @@ public class Network {
         return 0;
     }
 
-    public void setYellowTime(int yellowTime) {
+    public void setYellowTime​(int yellowTime) {
         //stub
     }
 
-    public void createIntersection(String id)
+    public void createIntersection​(String id)
             throws IllegalArgumentException {
         //stub
     }
 
-    public void connectIntersections(String from,
+    public void connectIntersections​(String from,
                                       String to,
                                       int defaultSpeed)
             throws IntersectionNotFoundException,
@@ -37,7 +29,7 @@ public class Network {
         //stub
     }
 
-    public void addLights(String intersectionId,
+    public void addLights​(String intersectionId,
                            int duration,
                            List<String> intersectionOrder)
             throws IntersectionNotFoundException,
@@ -46,7 +38,7 @@ public class Network {
         //stub
     }
 
-    public void addSpeedSign(String from,
+    public void addSpeedSign​(String from,
                               String to,
                               int initialSpeed)
             throws IntersectionNotFoundException,
@@ -54,7 +46,7 @@ public class Network {
         //stub
     }
 
-    public void setSpeedLimit(String from,
+    public void setSpeedLimit​(String from,
                                String to,
                                int newLimit)
             throws IntersectionNotFoundException,
@@ -62,20 +54,20 @@ public class Network {
         //stub
     }
 
-    public void changeLightDuration(String intersectionId,
+    public void changeLightDuration​(String intersectionId,
                                      int duration)
             throws IntersectionNotFoundException {
         //stub
     }
 
-    public Route getConnection(String from,
-                               String to)
+    public Route getConnection​(String from,
+                                String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
         return null;
     }
 
-    public void addSensor(String from,
+    public void addSensor​(String from,
                            String to,
                            Sensor sensor)
             throws DuplicateSensorException,
@@ -84,26 +76,26 @@ public class Network {
         //stub
     }
 
-    public int getCongestion(String from,
+    public int getCongestion​(String from,
                               String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
         return 0;
     }
 
-    public Intersection findIntersection(String id)
+    public Intersection findIntersection​(String id)
             throws IntersectionNotFoundException {
         return null;
     }
 
-    public void makeTwoWay(String from,
+    public void makeTwoWay​(String from,
                             String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
         //stub
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals​(Object obj) {
         return false;
     }
 

@@ -4,7 +4,7 @@ public class DemoVehicleCount
         extends DemoSensor
         implements VehicleCount {
 
-    public DemoVehicleCount(int[] data,
+    public DemoVehicleCount​(int[] data,
                              int threshold) {
         super(data, threshold);
         //stub

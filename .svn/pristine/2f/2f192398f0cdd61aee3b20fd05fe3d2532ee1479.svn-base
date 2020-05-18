@@ -1,8 +1,6 @@
 package tms.intersection;
 
-import tms.network.NetworkInitialiser;
 import tms.route.Route;
-import tms.util.InvalidOrderException;
 import tms.util.RouteNotFoundException;
 
 import java.util.ArrayList;
@@ -89,11 +87,11 @@ public class Intersection {
     }
 
 
-    public void setLightDuration(int duration) {
+    public void setLightDuration​(int duration) {
         //stub
     }
 
-    public void addTrafficLights(List<Route> order,
+    public void addTrafficLights​(List<Route> order,
                                   int yellowTime,
                                   int duration)
             throws InvalidOrderException,
@@ -188,7 +186,7 @@ public class Intersection {
                 + from.getId() + "\" to \"" + this.getId() + "\"");
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals​(Object obj) {
         return false; //ONLY PLACEHOLDER
     }
 

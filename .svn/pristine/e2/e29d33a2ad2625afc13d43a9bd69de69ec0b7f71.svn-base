@@ -109,7 +109,7 @@ public abstract class DemoSensor implements TimedItem {
                                 .toArray(String[]::new)));
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals​(Object obj) {
         return false;
     }
 

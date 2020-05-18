@@ -1,5 +1,5 @@
 package tms.sensors;
 
-public interface VehicleCount extends Sensor {
+public interface VehicleCount {
     int countTraffic();
 }

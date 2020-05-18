@@ -1,12 +1,9 @@
 package tms.intersection;
 
-import tms.route.Route;
 import tms.util.TimedItem;
 
-import java.util.List;
-
 public class IntersectionLights implements TimedItem {
-    public IntersectionLights(List<Route> connections,
+    public IntersectionLights​(List<Route> connections,
                                int yellowTime,
                                int duration) {
         //stub
@@ -16,7 +13,7 @@ public class IntersectionLights implements TimedItem {
         return 0;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration​(int duration) {
         //stub
     }
 

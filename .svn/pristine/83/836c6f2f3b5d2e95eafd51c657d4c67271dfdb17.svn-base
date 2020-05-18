@@ -1,7 +1,6 @@
 package tms.route;
 
 import tms.intersection.Intersection;
-import tms.network.NetworkInitialiser;
 import tms.sensors.DemoPressurePad;
 import tms.sensors.Sensor;
 import tms.util.DuplicateSensorException;
@@ -195,7 +194,7 @@ public class Route {
         sensors.add(sensor);
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals​(Object obj) {
         return false;
     }
 
