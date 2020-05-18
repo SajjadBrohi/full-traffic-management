@@ -1,0 +1,113 @@
+package tms.network;
+
+import java.util.List;
+
+public class Network {
+    public Network() {
+        //stub
+    }
+
+    public int getYellowTime() {
+        return 0;
+    }
+
+    public void setYellowTime​(int yellowTime) {
+        //stub
+    }
+
+    public void createIntersection​(String id)
+            throws IllegalArgumentException {
+        //stub
+    }
+
+    public void connectIntersections​(String from,
+                                      String to,
+                                      int defaultSpeed)
+            throws IntersectionNotFoundException,
+            IllegalStateException,
+            IllegalArgumentException {
+        //stub
+    }
+
+    public void addLights​(String intersectionId,
+                           int duration,
+                           List<String> intersectionOrder)
+            throws IntersectionNotFoundException,
+            InvalidOrderException,
+            IllegalArgumentException {
+        //stub
+    }
+
+    public void addSpeedSign​(String from,
+                              String to,
+                              int initialSpeed)
+            throws IntersectionNotFoundException,
+            RouteNotFoundException {
+        //stub
+    }
+
+    public void setSpeedLimit​(String from,
+                               String to,
+                               int newLimit)
+            throws IntersectionNotFoundException,
+            RouteNotFoundException {
+        //stub
+    }
+
+    public void changeLightDuration​(String intersectionId,
+                                     int duration)
+            throws IntersectionNotFoundException {
+        //stub
+    }
+
+    public Route getConnection​(String from,
+                                String to)
+            throws IntersectionNotFoundException,
+            RouteNotFoundException {
+        return null;
+    }
+
+    public void addSensor​(String from,
+                           String to,
+                           Sensor sensor)
+            throws DuplicateSensorException,
+            IntersectionNotFoundException,
+            RouteNotFoundException {
+        //stub
+    }
+
+    public int getCongestion​(String from,
+                              String to)
+            throws IntersectionNotFoundException,
+            RouteNotFoundException {
+        return 0;
+    }
+
+    public Intersection findIntersection​(String id)
+            throws IntersectionNotFoundException {
+        return null;
+    }
+
+    public void makeTwoWay​(String from,
+                            String to)
+            throws IntersectionNotFoundException,
+            RouteNotFoundException {
+        //stub
+    }
+
+    public boolean equals​(Object obj) {
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
+
+    public String toString() {
+        return null;
+    }
+
+    public List<Intersection> getIntersections() {
+        return null;
+    }
+}

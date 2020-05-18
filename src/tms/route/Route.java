@@ -68,6 +68,10 @@ public class Route {
         return this.trafficLight;
     }
 
+    public int getCongestion() {
+        return 0;
+    }
+
     /**
      * Returns a new list containing all the sensors on this route.
      * <p>
@@ -190,6 +194,13 @@ public class Route {
         sensors.add(sensor);
     }
 
+    public boolean equals​(Object obj) {
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
     /**
      * Returns the string representation of this route.
      * <p>

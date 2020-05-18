@@ -108,4 +108,12 @@ public abstract class DemoSensor implements TimedItem {
                         Arrays.stream(this.data).mapToObj(String::valueOf)
                                 .toArray(String[]::new)));
     }
+
+    public boolean equals​(Object obj) {
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
 }

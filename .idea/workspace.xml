@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/route/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/route/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/sensors/DemoSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/sensors/DemoSensor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +75,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589768133682" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589768831842">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589769533168">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589768831842" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589769533168" />
   </component>
 </project>
