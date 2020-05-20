@@ -109,11 +109,19 @@ public abstract class DemoSensor implements TimedItem {
                                 .toArray(String[]::new)));
     }
 
-    public boolean equals(Object obj) {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DemoSensor)) return false;
+        DemoSensor that = (DemoSensor) o;
+        return threshold == that.threshold &&
+                Arrays.equals(data, that.data);
     }
 
+    @Override
     public int hashCode() {
-        return 0;
+        int result = Objects.hash(threshold);
+        result = 31 * result + Arrays.hashCode(data);
+        return result;
     }
 }

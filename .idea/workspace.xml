@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/tms/sensors/DemoSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/sensors/DemoSensor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tms/sensors/DemoVehicleCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/sensors/DemoVehicleCount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,6 +139,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added all files" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="76" key="#Templates" timestamp="1589989009249">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#Templates/0.0.1536.834@0.0.1536.834" timestamp="1589989009249" />
     <state x="142" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589986151991">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
