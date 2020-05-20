@@ -1,5 +1,6 @@
 package tms.route;
 
+import tms.congestion.AveragingCongestionCalculator;
 import tms.intersection.Intersection;
 import tms.network.NetworkInitialiser;
 import tms.sensors.DemoPressurePad;
@@ -30,7 +31,9 @@ public class Route {
     /** Traffic light signal on this route, null if none exists. */
     private TrafficLight trafficLight;
     /** Speed limit of this route if no electronic speed sign exists. */
+    private AveragingCongestionCalculator averagingCongestionCalculator;
     private int defaultSpeed;
+
 
     /**
      * Creates a new route with the given ID, origin intersection and default
@@ -47,6 +50,7 @@ public class Route {
         this.from = from;
         this.defaultSpeed = defaultSpeed;
         sensors = new ArrayList<>();
+        averagingCongestionCalculator = new AveragingCongestionCalculator(sensors);
     }
 
     /**
@@ -70,7 +74,7 @@ public class Route {
     }
 
     public int getCongestion() {
-        return 0;
+        return averagingCongestionCalculator.calculateCongestion();
     }
 
     /**
@@ -195,13 +199,29 @@ public class Route {
         sensors.add(sensor);
     }
 
-    public boolean equals(Object obj) {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Route route = (Route) o;
+        return defaultSpeed == route.defaultSpeed &&
+                Objects.equals(id, route.id) &&
+                Objects.equals(sensors, route.sensors) &&
+                Objects.equals(speedSign, route.speedSign) &&
+                Objects.equals(trafficLight, route.trafficLight) &&
+                ((this.getTrafficLight() == null && route.getTrafficLight() == null) ||
+                (this.getTrafficLight() != null && route.getTrafficLight() != null)) &&
+                ((this.hasSpeedSign() && route.hasSpeedSign()) ||
+                        (!this.hasSpeedSign() && !route.hasSpeedSign()));
     }
 
+    @Override
     public int hashCode() {
-        return 0;
+        return id.hashCode() + sensors.hashCode() + speedSign.hashCode() + trafficLight.hashCode()
+                + Objects.hash(defaultSpeed);
+//                Objects.hash(id, sensors, speedSign, trafficLight, defaultSpeed);
     }
+
     /**
      * Returns the string representation of this route.
      * <p>
