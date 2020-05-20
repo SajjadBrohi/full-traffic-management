@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="" />
+    <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/tms/sensors/DemoVehicleCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/sensors/DemoVehicleCount.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +36,48 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tms.Launcher" />
+      <module name="full-traffic-management" />
+      <option name="PROGRAM_PARAMETERS" value="networks/demo.txt" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files (x86)\Java\javafx-sdk-14.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="full-traffic-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tms" />
+      <option name="MAIN_CLASS_NAME" value="tms.JdkTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="JUnit.JdkTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="JUnit.JdkTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\Sajjad Brohi\AppData\Roaming\Subversion</configuration>
@@ -94,6 +138,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added all files" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="142" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589986151991">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="142" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1589986151991" />
     <state x="499" y="172" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1589768122276">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -106,6 +154,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589771315180" />
+    <state width="1493" height="226" key="GridCell.Tab.0.bottom" timestamp="1589987946535">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="226" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589987946535" />
+    <state width="1493" height="226" key="GridCell.Tab.0.center" timestamp="1589987946535">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="226" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589987946535" />
+    <state width="1493" height="226" key="GridCell.Tab.0.left" timestamp="1589987946535">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="226" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589987946535" />
+    <state width="1493" height="226" key="GridCell.Tab.0.right" timestamp="1589987946535">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="226" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589987946535" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1589771320175">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

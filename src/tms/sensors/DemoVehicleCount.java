@@ -7,18 +7,22 @@ public class DemoVehicleCount
     public DemoVehicleCount(int[] data,
                              int threshold) {
         super(data, threshold);
-        //stub
     }
 
+    @Override
     public int countTraffic() {
-        return 0;
+        return this.getCurrentValue();
     }
 
+    @Override
     public int getCongestion() {
-        return 0;
+        float congestion = (float) this.countTraffic() / this.getThreshold();
+        int congestionPct = Math.round(100 - 100 * congestion);
+        return Math.min(Math.max(congestionPct, 0), 100);
     }
 
+    @Override
     public String toString() {
-        return null;
+        return "VC" + ":" + super.toString();
     }
 }
