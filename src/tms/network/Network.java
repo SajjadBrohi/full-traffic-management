@@ -10,6 +10,7 @@ import tms.util.RouteNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Network {
     private List<Intersection> intersections;
@@ -17,6 +18,7 @@ public class Network {
 
     public Network() {
         intersections = new ArrayList<>();
+        yellowTime = 1;
     }
 
     public int getYellowTime() {
@@ -37,14 +39,13 @@ public class Network {
             throw new IllegalArgumentException();
         }
 
-        for (Intersection currentIntersection: intersections) {
-            if (currentIntersection.getId().equals(id)) {
-                throw new IllegalArgumentException();
-            }
+        try {
+            findIntersection(id);
+            throw new IllegalArgumentException();
+        } catch (IntersectionNotFoundException e) {
+            intersections.add(new Intersection(id));
         }
 
-        Intersection intersection = new Intersection(id);
-        intersections.add(intersection);
     }
 
     public void connectIntersections(String from,
@@ -53,30 +54,40 @@ public class Network {
             throws IntersectionNotFoundException,
             IllegalStateException,
             IllegalArgumentException {
+
+        try {
+            getConnection(from, to);
+        } catch (RouteNotFoundException e) {
+            throw new IllegalStateException();
+        }
+
         if (defaultSpeed < 0) {
             throw new IllegalArgumentException();
         }
 
-        for (Intersection toIntersection: intersections) {
-            if (toIntersection.getId().equals(to)) {
-                for (Intersection fromIntersection: intersections) {
-                    if (fromIntersection.getId().equals(from)) {
-                        // If it throws RouteNotFoundException, it adds a new connection
-                        // Otherwise it throws IllegalStateException
-                        try {
-                            toIntersection.getConnection(fromIntersection);
-                            throw new IllegalStateException();
-                        } catch (RouteNotFoundException r) {
-                            toIntersection.addConnection(fromIntersection, defaultSpeed);
-                        }
-                    } else {
-                        throw new IntersectionNotFoundException();
-                    }
-                }
-            } else {
-                throw new IntersectionNotFoundException();
-            }
-        }
+        findIntersection(to).addConnection(findIntersection(from), defaultSpeed);
+
+
+//        for (Intersection toIntersection: intersections) {
+//            if (toIntersection.getId().equals(to)) {
+//                for (Intersection fromIntersection: intersections) {
+//                    if (fromIntersection.getId().equals(from)) {
+//                        // If it throws RouteNotFoundException, it adds a new connection
+//                        // Otherwise it throws IllegalStateException
+//                        try {
+//                            toIntersection.getConnection(fromIntersection);
+//                            throw new IllegalStateException();
+//                        } catch (RouteNotFoundException r) {
+//                            toIntersection.addConnection(fromIntersection, defaultSpeed);
+//                        }
+//                    } else {
+//                        throw new IntersectionNotFoundException();
+//                    }
+//                }
+//            } else {
+//                throw new IntersectionNotFoundException();
+//            }
+//        }
     }
 
     public void addLights(String intersectionId,
@@ -85,15 +96,6 @@ public class Network {
             throws IntersectionNotFoundException,
             InvalidOrderException,
             IllegalArgumentException {
-        int indexOfIntersection = -1;
-
-        for (Intersection currentIntersection: intersections) {
-            if (currentIntersection.getId().equals(intersectionId)) {
-                indexOfIntersection = intersections.indexOf(currentIntersection);
-            } else {
-                throw new IntersectionNotFoundException();
-            }
-        }
 
         if (intersectionOrder.isEmpty()) {
             throw new InvalidOrderException();
@@ -104,26 +106,31 @@ public class Network {
         }
 
         List<Route> routeList = new ArrayList<>(intersectionOrder.size());
-
         for (String currentIntersection: intersectionOrder) {
             try {
                 routeList.add(this.getConnection(currentIntersection, intersectionId));
             } catch (RouteNotFoundException r) {
                 //
-            } catch (IntersectionNotFoundException i) {
-                //
             }
         }
 
-        // if the order specified is not a permutation of the intersection's incoming routes;
-        for (Route route: intersections.get(indexOfIntersection).getConnections()) {
-            if (!routeList.contains(route)) {
+        // Check if given order is not a permutation of incomingRoutes
+        boolean permutationCheck = false;
+        for (Route routeInIntersection: findIntersection(intersectionId).getConnections()) {
+            for (Route routeInList: routeList) {
+                if (routeInList.equals(routeInIntersection)) {
+                    permutationCheck = true;
+                }
+            }
+
+            if (permutationCheck) {
+                permutationCheck = false;
+            } else {
                 throw new InvalidOrderException();
             }
         }
 
-
-        intersections.get(indexOfIntersection).addTrafficLights(routeList, yellowTime, duration);
+        findIntersection(intersectionId).addTrafficLights(routeList, yellowTime, duration);
     }
 
     public void addSpeedSign(String from,
@@ -131,26 +138,30 @@ public class Network {
                               int initialSpeed)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
+
         if (initialSpeed < 0) {
             throw new IllegalArgumentException();
         }
 
-        for (Intersection toIntersection: intersections) {
-            if (toIntersection.getId().equals(to)) {
-                for (Intersection fromIntersection: intersections) {
-                    if (fromIntersection.getId().equals(from)) {
-                        try {
-                            toIntersection.getConnection(fromIntersection).addSpeedSign(initialSpeed);
-                        } catch (RouteNotFoundException r) {
-                        }
-                    } else {
-                        throw new IntersectionNotFoundException();
-                    }
-                }
-            } else {
-                throw new IntersectionNotFoundException();
-            }
-        }
+        getConnection(from, to).addSpeedSign(initialSpeed);
+
+
+//        for (Intersection toIntersection: intersections) {
+//            if (toIntersection.getId().equals(to)) {
+//                for (Intersection fromIntersection: intersections) {
+//                    if (fromIntersection.getId().equals(from)) {
+//                        try {
+//                            toIntersection.getConnection(fromIntersection).addSpeedSign(initialSpeed);
+//                        } catch (RouteNotFoundException r) {
+//                        }
+//                    } else {
+//                        throw new IntersectionNotFoundException();
+//                    }
+//                }
+//            } else {
+//                throw new IntersectionNotFoundException();
+//            }
+//        }
     }
 
     public void setSpeedLimit(String from,
@@ -172,14 +183,22 @@ public class Network {
     public void changeLightDuration(String intersectionId,
                                      int duration)
             throws IntersectionNotFoundException {
-        //stub
+        if (!findIntersection(intersectionId).hasTrafficLights()) {
+            throw new IllegalStateException();
+        }
+
+        if (duration < yellowTime + 1) {
+            throw new IllegalArgumentException();
+        }
+
+        findIntersection(intersectionId).setLightDuration(duration);
     }
 
     public Route getConnection(String from,
                                String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
-        return null;
+        return findIntersection(to).getConnection(findIntersection(from));
     }
 
     public void addSensor(String from,
@@ -188,41 +207,59 @@ public class Network {
             throws DuplicateSensorException,
             IntersectionNotFoundException,
             RouteNotFoundException {
-        //stub
+        getConnection(from, to).addSensor(sensor);
     }
 
     public int getCongestion(String from,
                               String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
-        return 0;
+        return getConnection(from, to).getCongestion();
     }
 
     public Intersection findIntersection(String id)
             throws IntersectionNotFoundException {
-        return null;
+        for (Intersection currentIntersection: intersections) {
+            if (currentIntersection.getId().equals(id)) {
+                return currentIntersection;
+            }
+        }
+
+        throw new IntersectionNotFoundException();
     }
 
     public void makeTwoWay(String from,
                             String to)
             throws IntersectionNotFoundException,
             RouteNotFoundException {
-        //stub
+        int defaultSpeed = getConnection(from, to).getSpeed();
+        connectIntersections(to, from, defaultSpeed);
+
+        if (getConnection(from, to).hasSpeedSign()) {
+            getConnection(to, from).addSpeedSign(defaultSpeed);
+        }
     }
 
-    public boolean equals(Object obj) {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Network network = (Network) o;
+        return Objects.equals(intersections, network.intersections) &&
+                intersections.size() == network.intersections.size();
     }
 
+    @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(intersections);
     }
 
     public String toString() {
+        toString().split(":")[0]; //To be used to find duration in IntersectionLight
         return null;
     }
 
     public List<Intersection> getIntersections() {
-        return null;
+        return new ArrayList<>(this.intersections);
     }
 }

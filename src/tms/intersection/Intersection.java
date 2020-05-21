@@ -227,7 +227,7 @@ public class Intersection {
      * intersection to this intersection
      * @ass1
      */
-    public Route getConnection(Intersection from)
+        public Route getConnection(Intersection from)
             throws RouteNotFoundException {
         for (Route route : incomingConnections) {
             if (route.getFrom().equals(from)) {

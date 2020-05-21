@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/network/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/network/Network.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
