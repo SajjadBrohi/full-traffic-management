@@ -254,8 +254,72 @@ public class Network {
         return Objects.hash(intersections);
     }
 
+    private int numRoutes() {
+        int numRoutes = 0;
+        for (Intersection intersectionFrom: intersections) {
+            for (Intersection intersectionTo: intersections) {
+                try {
+                    getConnection(intersectionFrom.getId(), intersectionTo.getId());
+                    numRoutes++;
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //
+                }
+
+                try {
+                    getConnection(intersectionTo.getId(), intersectionFrom.getId());
+                    numRoutes++;
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //
+                }
+            }
+        }
+
+        return numRoutes;
+    }
+
     public String toString() {
-        toString().split(":")[0]; //To be used to find duration in IntersectionLight
+        StringBuilder toString = new StringBuilder(
+                getIntersections().size() + System.lineSeparator() +
+                numRoutes() + System.lineSeparator() +
+                getYellowTime() + System.lineSeparator());
+
+        for (Intersection intersection: getIntersections()) {
+            toString.append(intersection.toString()).append(System.lineSeparator());
+        }
+
+        for (Intersection intersectionFrom: intersections) {
+            for (Intersection intersectionTo: intersections) {
+                Route route = null;
+                try {
+                    route = getConnection(intersectionFrom.getId(), intersectionTo.getId());
+                    toString.append(intersectionFrom.getId() + ":")
+                            .append(intersectionTo.getId() + ":")
+                            .append(route.getSpeed() + ":")
+                            .append(route.getSensors().size()
+                                        + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
+
+                            .append(System.lineSeparator());
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //ignored
+                }
+
+                for (Sensor sensor: route.getSensors()) {
+
+                }
+
+                try {
+                    route = getConnection(intersectionTo.getId(), intersectionFrom.getId());
+                    toString.append(intersectionTo.getId() + ":")
+                            .append(intersectionFrom.getId() + ":")
+                            .append(route.getSpeed() + ":")
+                            .append(route.getSensors().size()
+                                    + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
+                            .append(System.lineSeparator());
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //ignored
+                }
+            }
+        }
         return null;
     }
 
