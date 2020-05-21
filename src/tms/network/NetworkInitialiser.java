@@ -41,9 +41,11 @@ public class NetworkInitialiser {
                     break;
                 case 4:
                     for (int i = 0; i < numIntersections; i++) {
-                        if (!currentLine.contains(":")) {
-                            network.createIntersection(currentLine);
+                        if (currentLine.contains(":")) {
+                            String[] rows = currentLine.split(":");
                         }
+                        network.createIntersection(currentLine);
+
                         //Add parse here
 
                         currentLine = bufferedReader.readLine();
