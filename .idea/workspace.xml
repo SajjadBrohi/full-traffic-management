@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tms/network/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/network/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/network/NetworkInitialiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/network/NetworkInitialiser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

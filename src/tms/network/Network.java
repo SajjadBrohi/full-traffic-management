@@ -304,7 +304,7 @@ public class Network {
                 }
 
                 for (Sensor sensor: route.getSensors()) {
-
+                    toString.append(sensor.toString());
                 }
 
                 try {
@@ -318,9 +318,13 @@ public class Network {
                 } catch (RouteNotFoundException | IntersectionNotFoundException r) {
                     //ignored
                 }
+
+                for (Sensor sensor: route.getSensors()) {
+                    toString.append(sensor.toString());
+                }
             }
         }
-        return null;
+        return toString.toString();
     }
 
     public List<Intersection> getIntersections() {
