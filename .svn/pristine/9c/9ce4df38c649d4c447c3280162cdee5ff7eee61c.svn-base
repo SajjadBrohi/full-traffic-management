@@ -55,6 +55,12 @@ public class Network {
             IllegalStateException,
             IllegalArgumentException {
 
+        try {
+            getConnection(from, to);
+        } catch (RouteNotFoundException e) {
+            throw new IllegalStateException();
+        }
+
         if (defaultSpeed < 0) {
             throw new IllegalArgumentException();
         }
@@ -293,8 +299,8 @@ public class Network {
                                         + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
 
                             .append(System.lineSeparator());
-                } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-                    e.printStackTrace();
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //ignored
                 }
 
                 for (Sensor sensor: route.getSensors()) {
@@ -309,8 +315,8 @@ public class Network {
                             .append(route.getSensors().size()
                                     + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
                             .append(System.lineSeparator());
-                } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-                    e.printStackTrace();
+                } catch (RouteNotFoundException | IntersectionNotFoundException r) {
+                    //ignored
                 }
 
                 for (Sensor sensor: route.getSensors()) {

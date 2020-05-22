@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="debcf988-3ccd-41e8-9864-c6070b6801fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/congestion/AveragingCongestionCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/intersection/Intersection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tms/network/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/network/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tms/network/NetworkInitialiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/network/NetworkInitialiser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tms/display/MainViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tms/display/MainViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +68,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="full-traffic-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tms.network.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tms.network" />
+      <option name="MAIN_CLASS_NAME" value="tms.network.NetworkTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.addIntersection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="full-traffic-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tms.network.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tms.network" />
+      <option name="MAIN_CLASS_NAME" value="tms.network.NetworkTest" />
+      <option name="METHOD_NAME" value="addIntersection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Launcher" />
       <item itemvalue="JUnit.JdkTest" />
+      <item itemvalue="JUnit.NetworkTest.addIntersection" />
+      <item itemvalue="JUnit.NetworkTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="JUnit.NetworkTest" />
+        <item itemvalue="JUnit.NetworkTest.addIntersection" />
         <item itemvalue="JUnit.JdkTest" />
       </list>
     </recent_temporary>
@@ -147,60 +179,80 @@
       <option name="project" value="LOCAL" />
       <updated>1590052523901</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Network almost done">
+      <created>1590076769358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1590076769358</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Network done">
+      <created>1590105305929</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590105305929</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added all files" />
     <MESSAGE value="Implemented util, sensors, route" />
     <MESSAGE value="Implemented intersection, and some network" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented intersection, and some network" />
+    <MESSAGE value="Network almost done" />
+    <MESSAGE value="Network done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Network done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="76" key="#Templates" timestamp="1589989009249">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#Templates/0.0.1536.834@0.0.1536.834" timestamp="1589989009249" />
-    <state x="142" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589986151991">
+    <state x="254" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590104975360">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="142" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1589986151991" />
+    <state x="254" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1590104975360" />
+    <state x="423" y="343" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590102888176">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="423" y="343" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1590102888176" />
     <state x="499" y="172" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1589768122276">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="172" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.834@0.0.1536.834" timestamp="1589768122276" />
-    <state x="371" y="12" key="CommitChangelistDialog2" timestamp="1590052521366">
+    <state x="371" y="12" key="CommitChangelistDialog2" timestamp="1590105304407">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="371" y="12" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1590052521366" />
+    <state x="371" y="12" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1590105304407" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1589771315180">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589771315180" />
-    <state width="1493" height="226" key="GridCell.Tab.0.bottom" timestamp="1589994831281">
+    <state width="1493" height="171" key="GridCell.Tab.0.bottom" timestamp="1590105246306">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="226" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589994831281" />
-    <state width="1493" height="226" key="GridCell.Tab.0.center" timestamp="1589994831281">
+    <state width="1493" height="171" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1590105246306" />
+    <state width="1493" height="171" key="GridCell.Tab.0.center" timestamp="1590105246306">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="226" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589994831281" />
-    <state width="1493" height="226" key="GridCell.Tab.0.left" timestamp="1589994831281">
+    <state width="1493" height="171" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1590105246306" />
+    <state width="1493" height="171" key="GridCell.Tab.0.left" timestamp="1590105246306">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="226" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589994831281" />
-    <state width="1493" height="226" key="GridCell.Tab.0.right" timestamp="1589994831281">
+    <state width="1493" height="171" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1590105246306" />
+    <state width="1493" height="171" key="GridCell.Tab.0.right" timestamp="1590105246306">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="226" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589994831281" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1589771320175">
+    <state width="1493" height="171" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1590105246306" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1590103263876">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1589771320175" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590027730367">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1590103263876" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590094983386">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590027730367" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590094983386" />
     <state x="498" y="311" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589770927125">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

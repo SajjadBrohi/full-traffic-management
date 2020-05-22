@@ -89,7 +89,15 @@ public class MainViewModel {
      * @ass2 View-Model code for A2.
      */
     public void save(String filename) {
-        // TODO: Implement logic to save network data to a file.
+        try {
+            //BufferedWriter is for writing whole files instead of
+            // doing character by character
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+            bufferedWriter.write(network.toString());
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Error opening file");
+        }
     }
 
     /**
