@@ -1,0 +1,119 @@
+package tms.intersection;
+
+import tms.route.Route;
+import tms.route.TrafficSignal;
+import tms.util.TimedItem;
+import tms.util.TimedItemManager;
+
+import java.util.List;
+
+/**
+ * Represents a set of traffic lights at an intersection.
+ */
+public class IntersectionLights implements TimedItem {
+
+    private List<Route> connections;
+    private Route currentRoute;
+    private int yellowTime;
+    private int duration;
+    private int secondsLapsed;
+    private int currentRouteIndex;
+
+    /**
+     * Creates a new set of traffic lights at an intersection.
+     *
+     * @param connections a list of incoming routes, the list cannot be empty
+     * @param yellowTime time in seconds for which lights will appear yellow
+     * @param duration time in seconds for which lights will appear yellow
+     *                and green
+     * @requires connections.size() > 0 && yellowTime ≥ 1 &&
+     * duration > yellowTime
+     */
+    public IntersectionLights(List<Route> connections,
+                               int yellowTime,
+                               int duration) {
+
+        this.connections = connections;
+        currentRouteIndex = 0;
+        currentRoute = this.connections.get(currentRouteIndex);
+        currentRoute.setSignal(TrafficSignal.GREEN);
+
+        this.yellowTime = yellowTime;
+        this.duration = duration;
+        this.secondsLapsed = 0;
+
+        TimedItemManager.getTimedItemManager().registerTimedItem(this);
+    }
+
+    /**
+     * Returns the time in seconds for which a traffic light will appear
+     * yellow when transitioning from green to red.
+     *
+     * @return yellow time in seconds for this set of traffic lights
+     */
+    public int getYellowTime() {
+        return yellowTime;
+    }
+
+    /**
+     * Sets a new duration of each green-yellow cycle.
+     *
+     * @param duration duration - the new light signal duration
+     * @requires duration > getYellowTime()
+     */
+    public void setDuration(int duration) {
+        this.duration = duration;
+        currentRoute.setSignal(TrafficSignal.GREEN);
+        secondsLapsed = 0;
+    }
+
+    /**
+     * Simulates one second passing and updates the state of this set of
+     * traffic lights.
+     */
+    public void oneSecond() {
+        if (connections.isEmpty()) {
+            return;
+        }
+
+        secondsLapsed++;
+
+        if (currentRoute.getTrafficLight().getSignal() == TrafficSignal.GREEN) {
+            if (secondsLapsed == (duration - yellowTime)) {
+                currentRoute.setSignal(TrafficSignal.YELLOW);
+                secondsLapsed = 0;
+            }
+        } else if (currentRoute.getTrafficLight().getSignal() == TrafficSignal.YELLOW) {
+            if (secondsLapsed == yellowTime) {
+                currentRoute.setSignal(TrafficSignal.RED);
+                currentRouteIndex++;
+
+                if (currentRouteIndex + 1 > connections.size()) {
+                    currentRouteIndex = 0;
+                }
+
+                currentRoute = this.connections.get(currentRouteIndex);
+                currentRoute.setSignal(TrafficSignal.GREEN);
+                secondsLapsed = 0;
+            }
+        }
+    }
+
+    /**
+     * Returns the string representation of this set of IntersectionLights.
+     *
+     * @return formatted string representation
+     */
+    public String toString() {
+        StringBuilder toString = new StringBuilder(duration + ":");
+        for (int i = 0; i < connections.size(); i++) {
+            if (i + 1 == connections.size()) {
+                toString.append(connections.get(i).getFrom().getId());
+            } else {
+                toString.append(connections.get(i).getFrom().getId() + ",");
+            }
+        }
+
+        return toString.toString();
+    }
+}
