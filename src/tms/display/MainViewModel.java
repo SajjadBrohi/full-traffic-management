@@ -120,7 +120,15 @@ public class MainViewModel {
      * @ass2 View-Model code for A2.
      */
     public void togglePaused() {
-        // TODO: Implement logic to toggle whether simulation is paused or not.
+        if (pausedProperty.get()) {
+            pausedProperty.setValue(false);
+            pausedText.setValue("System Paused: false");
+            pausedButtonText.setValue("Pause");
+        } else {
+            pausedProperty.setValue(true);
+            pausedText.setValue("System Paused: true");
+            pausedButtonText.set("Unpause");
+        }
     }
 
     /**
@@ -137,7 +145,14 @@ public class MainViewModel {
      * @ass2 View-Model code for A2.
      */
     public void tick() {
-        // TODO: Implement logic to process that one second has passed in the simulation.
+        if (pausedProperty.get()) {
+            return;
+        }
+
+        changedStructureProperty.setValue(true);
+        seconds.setValue(seconds.getValue() + 1);
+        timeElapsed.setValue("Seconds Elapsed: " + seconds.getValue().toString());
+        TimedItemManager.getTimedItemManager().oneSecond();
     }
 
     /**
@@ -154,7 +169,18 @@ public class MainViewModel {
      * @ass2 View-Model code for A2.
      */
     void accept(String input) {
-        // TODO: Implement logic for the input keys.
+        if (input.equals("P") || input.equals("p")) {
+            togglePaused();
+        }
+
+        if (input.equals("Q") || input.equals("q")) {
+            Platform.exit();
+            System.exit(1);
+        }
+
+        if (input.equals("S") || input.equals("s")) {
+            save("DefaultSave");
+        }
     }
 
     /**
