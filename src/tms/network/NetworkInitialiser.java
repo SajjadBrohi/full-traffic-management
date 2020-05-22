@@ -86,7 +86,7 @@ public class NetworkInitialiser {
                             String[] dataString = sensorValues[2].split(",");
                             int[] dataInt = new int[dataString.length];
                             for(int k = 0; k < dataString.length; k++) {
-                                dataInt[i] = Integer.parseInt(dataString[i]);
+                                dataInt[k] = Integer.parseInt(dataString[k]);
                             }
 
                             try {

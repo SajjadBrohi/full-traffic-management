@@ -254,33 +254,13 @@ public class Network {
 
                             .append(System.lineSeparator());
                 } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-//                    e.printStackTrace();
-                }
-
-                try {
-                    for (Sensor sensor: route.getSensors()) {
-                        toString.append(sensor.toString());
-                    }
-                } catch (NullPointerException n) {
                     // Squash
                 }
 
-
-                try {
-                    route = getConnection(intersectionTo.getId(), intersectionFrom.getId());
-                    toString.append(intersectionTo.getId() + ":")
-                            .append(intersectionFrom.getId() + ":")
-                            .append(route.getSpeed() + ":")
-                            .append(route.getSensors().size()
-                                    + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
-                            .append(System.lineSeparator());
-                } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-//                    e.printStackTrace();
-                }
-
                 try {
                     for (Sensor sensor: route.getSensors()) {
-                        toString.append(sensor.toString());
+                        toString.append(sensor.toString())
+                                .append(System.lineSeparator());
                     }
                 } catch (NullPointerException n) {
                     // Squash
