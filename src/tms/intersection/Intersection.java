@@ -227,15 +227,15 @@ public class Intersection {
      * intersection to this intersection
      * @ass1
      */
-        public Route getConnection(Intersection from)
-            throws RouteNotFoundException {
-        for (Route route : incomingConnections) {
-            if (route.getFrom().equals(from)) {
-                return route;
-            }
+    public Route getConnection(Intersection from)
+        throws RouteNotFoundException {
+    for (Route route : incomingConnections) {
+        if (route.getFrom().equals(from)) {
+            return route;
         }
-        throw new RouteNotFoundException("Route not found from \""
-                + from.getId() + "\" to \"" + this.getId() + "\"");
+    }
+    throw new RouteNotFoundException("Route not found from \""
+            + from.getId() + "\" to \"" + this.getId() + "\"");
     }
 
     @Override

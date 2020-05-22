@@ -60,28 +60,6 @@ public class Network {
         }
 
         findIntersection(to).addConnection(findIntersection(from), defaultSpeed);
-
-
-//        for (Intersection toIntersection: intersections) {
-//            if (toIntersection.getId().equals(to)) {
-//                for (Intersection fromIntersection: intersections) {
-//                    if (fromIntersection.getId().equals(from)) {
-//                        // If it throws RouteNotFoundException, it adds a new connection
-//                        // Otherwise it throws IllegalStateException
-//                        try {
-//                            toIntersection.getConnection(fromIntersection);
-//                            throw new IllegalStateException();
-//                        } catch (RouteNotFoundException r) {
-//                            toIntersection.addConnection(fromIntersection, defaultSpeed);
-//                        }
-//                    } else {
-//                        throw new IntersectionNotFoundException();
-//                    }
-//                }
-//            } else {
-//                throw new IntersectionNotFoundException();
-//            }
-//        }
     }
 
     public void addLights(String intersectionId,
@@ -138,24 +116,6 @@ public class Network {
         }
 
         getConnection(from, to).addSpeedSign(initialSpeed);
-
-
-//        for (Intersection toIntersection: intersections) {
-//            if (toIntersection.getId().equals(to)) {
-//                for (Intersection fromIntersection: intersections) {
-//                    if (fromIntersection.getId().equals(from)) {
-//                        try {
-//                            toIntersection.getConnection(fromIntersection).addSpeedSign(initialSpeed);
-//                        } catch (RouteNotFoundException r) {
-//                        }
-//                    } else {
-//                        throw new IntersectionNotFoundException();
-//                    }
-//                }
-//            } else {
-//                throw new IntersectionNotFoundException();
-//            }
-//        }
     }
 
     public void setSpeedLimit(String from,
@@ -294,12 +254,17 @@ public class Network {
 
                             .append(System.lineSeparator());
                 } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 }
 
-                for (Sensor sensor: route.getSensors()) {
-                    toString.append(sensor.toString());
+                try {
+                    for (Sensor sensor: route.getSensors()) {
+                        toString.append(sensor.toString());
+                    }
+                } catch (NullPointerException n) {
+                    // Squash
                 }
+
 
                 try {
                     route = getConnection(intersectionTo.getId(), intersectionFrom.getId());
@@ -310,11 +275,15 @@ public class Network {
                                     + (route.hasSpeedSign() ? ":" + route.getSpeed() : ""))
                             .append(System.lineSeparator());
                 } catch (RouteNotFoundException | IntersectionNotFoundException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 }
 
-                for (Sensor sensor: route.getSensors()) {
-                    toString.append(sensor.toString());
+                try {
+                    for (Sensor sensor: route.getSensors()) {
+                        toString.append(sensor.toString());
+                    }
+                } catch (NullPointerException n) {
+                    // Squash
                 }
             }
         }

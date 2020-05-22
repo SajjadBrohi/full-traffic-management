@@ -90,9 +90,7 @@ public class MainViewModel {
      */
     public void save(String filename) {
         try {
-            //BufferedWriter is for writing whole files instead of
-            // doing character by character
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename + ".txt"));
             bufferedWriter.write(network.toString());
             bufferedWriter.close();
         } catch (IOException e) {
