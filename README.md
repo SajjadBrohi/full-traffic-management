@@ -1,6 +1,4 @@
-# full-traffic-management
-
-## Details
+# Traffic Management System
 
 A simple simulation of a traffic management system (TMS). A traffic management system monitors traffic flow in a region and adjusts traffic signals to optimise traffic flow. A TMS uses different types of sensors and signals to monitor and manage traffic flow. 
 
